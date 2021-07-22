@@ -1,34 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void decompteTotal(int *hour, int *mins);
+void orderTableau(int tableau[], int tailleTableau);
 
-// by defining pointer
-//int main() {
-//    int hour, mins = 0;
-//    int *pointerHour = &hour;
-//    int *pointerMin = &mins;
-//
-//    printf("\n Mins : \n");
-//    scanf("%d", &mins);
-//
-//    decompteTotal(pointerHour, pointerMin);
-//
-//    printf("%d Heures et %d minutes", hour, mins);
-//}
-
-// by reference
+// Exo 5
 int main() {
-    int hour, mins = 0;
+    int tailleTableau = 10;
+    int tableau[10] = {20, 10, 5, 7, 50, 80, 1, 2, 6, 3};
 
-    printf("\n Mins : \n");
-    scanf("%d", &mins);
+    orderTableau(tableau, tailleTableau);
 
-    decompteTotal(&hour, &mins);
+    for (int i = 0; i < tailleTableau; i++) {
+        printf("%d \n", tableau[i]);
+    }
 
-    printf("%d Heures et %d minutes", hour, mins);
+    return 0;
 }
-void decompteTotal(int *hour, int *mins) {
-    *hour = *mins / 60;  // 90 / 60 = 1
-    *mins = *mins % 60; // 90 % 60 = 30
+
+void orderTableau(int tableau[], int tailleTableau) {
+    int intermediate;
+    for (int k = 0; k < tailleTableau; k++) {
+        for (int i = 0; i < tailleTableau; i++) {
+            if ((tableau[i] > tableau[i + 1]) && (i != tailleTableau - 1)) {
+                intermediate = tableau[i];
+                tableau[i] = tableau[i + 1];
+                tableau[i + 1] = intermediate;
+            }
+        }
+    }
 }
