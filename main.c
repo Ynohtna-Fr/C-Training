@@ -1,31 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
+typedef struct Personnes Personnes;
 
-void orderTableau(int tableau[], int tailleTableau);
+struct Personnes {
+    char nom[100];
+    char prenom[100];
+};
 
-// Exo 5
 int main() {
-    int tailleTableau = 10;
-    int tableau[10] = {20, 10, 5, 7, 50, 80, 1, 2, 6, 3};
+    Personnes utilisateurs[2];
 
-    orderTableau(tableau, tailleTableau);
-
-    for (int i = 0; i < tailleTableau; i++) {
-        printf("%d \n", tableau[i]);
+    for (int i = 0; i < 2; i++) {
+        printf("Merci de rentrer votre nom joueur : %d \n", i);
+        scanf("%s", utilisateurs[i].nom);
+        printf("Merci de rentrer votre prenom joueur : %d \n", i);
+        scanf("%s", utilisateurs[i].prenom);
+        printf("Bienvenue %s %s !", utilisateurs[i].nom, utilisateurs[i].prenom);
     }
-
     return 0;
-}
-
-void orderTableau(int tableau[], int tailleTableau) {
-    int intermediate;
-    for (int k = 0; k < tailleTableau; k++) {
-        for (int i = 0; i < tailleTableau; i++) {
-            if ((tableau[i] > tableau[i + 1]) && (i != tailleTableau - 1)) {
-                intermediate = tableau[i];
-                tableau[i] = tableau[i + 1];
-                tableau[i + 1] = intermediate;
-            }
-        }
-    }
 }
