@@ -9,13 +9,14 @@ Color C_negative(Color c);
 Color C_permute(Color c);
 int C_intensity(Color c);
 Color C_grayScale(Color c);
+int C_threshold(Color c, int th);
 
 int main() {
     Color selectedColor = C_new(255,25,0);
     Color multipliedColor = C_grayScale(selectedColor);
-    int intensity = C_intensity(selectedColor);
+    int threshold = C_threshold(selectedColor, 93);
 
-    printf("Intensity : %d \n", intensity);
+    printf("Threshold : %d \n", threshold);
 
     C_print(multipliedColor);
     return 0;
@@ -75,4 +76,12 @@ Color C_grayScale(Color c) {
     int intensity = C_intensity(c);
     Color tmp = {intensity, intensity, intensity};
     return tmp;
+}
+
+int C_threshold(Color c, int th) {
+    if (C_intensity(c) > th) {
+        return 255;
+    }
+
+    return 0;
 }
