@@ -7,11 +7,15 @@ int clamp(int n);
 Color C_multiply(Color c, float coef);
 Color C_negative(Color c);
 Color C_permute(Color c);
+int C_intensity(Color c);
+Color C_grayScale(Color c);
+
 int main() {
     Color selectedColor = C_new(255,25,0);
-    Color multipliedColor = C_permute(selectedColor);
+    Color multipliedColor = C_grayScale(selectedColor);
+    int intensity = C_intensity(selectedColor);
 
-    printf("Hello, World!\n");
+    printf("Intensity : %d \n", intensity);
 
     C_print(multipliedColor);
     return 0;
@@ -59,10 +63,16 @@ Color C_negative(Color c) {
 }
 
 Color C_permute(Color c) {
-    Color tmp;
-    tmp.red = c.green;
-    tmp.green = c.blue;
-    tmp.blue = c.red;
+    Color tmp = {c.green, c.blue, c.red};
+    return tmp;
+}
 
+int C_intensity(Color c) {
+    return (c.red + c.green + c.blue) / 3;
+}
+
+Color C_grayScale(Color c) {
+    int intensity = C_intensity(c);
+    Color tmp = {intensity, intensity, intensity};
     return tmp;
 }
