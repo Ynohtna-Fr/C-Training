@@ -3,6 +3,7 @@
 
 void C_print(struct Color c);
 struct Color C_new(int r, int g, int b);
+int clamp(int n);
 
 int main() {
     Color selectedColor = C_new(255,255,255);
@@ -19,9 +20,19 @@ void C_print(struct Color c) {
 
 struct Color C_new(int r, int g, int b) {
     Color c;
-    c.red = r;
-    c.green = g;
-    c.blue = b;
+    c.red = clamp(r);
+    c.green = clamp(g);
+    c.blue = clamp(b);
 
     return c;
+}
+
+int clamp(int n) {
+    if (n > 255) {
+        return 255;
+    } else if (n < 0) {
+        return 0;
+    }
+
+    return n;
 }
