@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include "color.c"
 
-void C_print(struct Color c);
-struct Color C_new(int r, int g, int b);
+void C_print(Color c);
+Color C_new(int r, int g, int b);
 int clamp(int n);
-struct Color C_multiply(struct Color c, float coef);
-struct Color C_negative(struct Color c);
-
+Color C_multiply(Color c, float coef);
+Color C_negative(Color c);
+Color C_permute(Color c);
 int main() {
     Color selectedColor = C_new(255,25,0);
-    Color multipliedColor = C_negative(selectedColor);
+    Color multipliedColor = C_permute(selectedColor);
 
     printf("Hello, World!\n");
 
@@ -17,11 +17,11 @@ int main() {
     return 0;
 }
 
-void C_print(struct Color c) {
+void C_print(Color c) {
     printf("(%d, %d, %d)", c.red, c.green, c.blue);
 }
 
-struct Color C_new(int r, int g, int b) {
+Color C_new(int r, int g, int b) {
     Color c;
     c.red = clamp(r);
     c.green = clamp(g);
@@ -40,8 +40,8 @@ int clamp(int n) {
     return n;
 }
 
-struct Color C_multiply(struct Color c, float coef) {
-    struct Color tmp;
+Color C_multiply(Color c, float coef) {
+    Color tmp;
     tmp.red = clamp(c.red * coef);
     tmp.green = clamp(c.green * coef);
     tmp.blue = clamp(c.blue * coef);
@@ -49,11 +49,20 @@ struct Color C_multiply(struct Color c, float coef) {
     return tmp;
 }
 
-struct Color C_negative(struct Color c) {
-    struct Color tmp;
+Color C_negative(Color c) {
+    Color tmp;
     tmp.red = 255 - c.red;
     tmp.green = 255 - c.green;
     tmp.blue = 255 - c.blue;
+
+    return tmp;
+}
+
+Color C_permute(Color c) {
+    Color tmp;
+    tmp.red = c.green;
+    tmp.green = c.blue;
+    tmp.blue = c.red;
 
     return tmp;
 }
