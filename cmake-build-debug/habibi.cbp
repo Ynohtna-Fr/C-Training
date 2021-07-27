@@ -78,6 +78,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/anthony/CLionProjects/habibi/color.c">
+			<Option target="habibi"/>
+		</Unit>
+		<Unit filename="/Users/anthony/CLionProjects/habibi/color.h">
+			<Option target="habibi"/>
+		</Unit>
 		<Unit filename="/Users/anthony/CLionProjects/habibi/main.c">
 			<Option target="habibi"/>
 		</Unit>

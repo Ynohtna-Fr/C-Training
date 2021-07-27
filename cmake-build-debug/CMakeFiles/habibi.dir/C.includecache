@@ -7,14 +7,10 @@
 #IncludeRegexTransform: 
 
 /Users/anthony/CLionProjects/habibi/color.c
+stdio.h
+-
 color.h
 /Users/anthony/CLionProjects/habibi/color.h
 
 /Users/anthony/CLionProjects/habibi/color.h
-
-/Users/anthony/CLionProjects/habibi/main.c
-stdio.h
--
-color.c
-/Users/anthony/CLionProjects/habibi/color.c
 

@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "color.h"
 
 static int clamp(int n);

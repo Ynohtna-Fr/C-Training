@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/habibi.dir/color.c.o"
   "CMakeFiles/habibi.dir/main.c.o"
   "habibi"
   "habibi.pdb"

@@ -142,6 +142,33 @@ habibi/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/habibi.dir/build.make CMakeFiles/habibi.dir/build
 .PHONY : habibi/fast
 
+color.o: color.c.o
+
+.PHONY : color.o
+
+# target to build an object file
+color.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/habibi.dir/build.make CMakeFiles/habibi.dir/color.c.o
+.PHONY : color.c.o
+
+color.i: color.c.i
+
+.PHONY : color.i
+
+# target to preprocess a source file
+color.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/habibi.dir/build.make CMakeFiles/habibi.dir/color.c.i
+.PHONY : color.c.i
+
+color.s: color.c.s
+
+.PHONY : color.s
+
+# target to generate assembly for a file
+color.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/habibi.dir/build.make CMakeFiles/habibi.dir/color.c.s
+.PHONY : color.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -178,6 +205,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... habibi"
+	@echo "... color.o"
+	@echo "... color.i"
+	@echo "... color.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
